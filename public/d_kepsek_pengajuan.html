@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/s_valid.css" />
+    <link rel="stylesheet" href="css/s_gurupengajuan.css" />
+    <title>Pengajuan Modul Ajar</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside id="sidebar"></aside>
+
+      <div class="main p-3">
+        <div class="container-fluid">
+          <header class="row">
+            <div class="brand-name col-sm-4">
+              <h1>SIM SMPN 73 YOGYAKARTA</h1>
+            </div>
+            <div class="col-sm-6 text-white">
+              <div class="search row input-group">
+                <div class="col-sm-6"></div>
+                <form class="d-flex col-sm-6">
+                  <input class="form-control" type="text" placeholder="Search Class, Documents, ..." aria-label="Search" aria-describedby="cari" />
+                  <button class="input-group-text" id="cari" type="submit"><i class="lni lni-search"></i></button>
+                </form>
+              </div>
+            </div>
+            <div class="guru col-sm-2">
+              <div class="profile row">
+                <div class="nama col-sm-9"><h1 id="guru-name">Guru</h1></div>
+                <div class="logo col-sm-3">
+                  <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <br />
+
+          <div class="row">
+            <div class="judul">
+              <h1>Pengajuan Modul Ajar</h1>
+            </div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Modul Ajar</li>
+                <li class="breadcrumb-item active" aria-current="page">Pengajuan Modul Ajar</li>
+              </ol>
+            </nav>
+
+            <main class="container p-3">
+              <!-- Main Progress -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-10"><h1 class="section-title">DAFTAR MODUL AJAR</h1></div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>STATUS</th>
+                          <th>MAPEL</th>
+                          <th>KELAS</th>
+                          <th>BAB</th>
+                          <th>JUDUL</th>
+                          <th>TGL</th>
+                          <th>JP</th>
+                          <th>METODE</th>
+                          <th>AKSI</th>
+                        </tr>
+                      </thead>
+                      <tbody id="modulAjarTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      async function loadSidebar() {
+        try {
+          const response = await fetch("sidebar_kepsek.html");
+          const sidebarHtml = await response.text();
+          document.getElementById("sidebar").innerHTML = sidebarHtml;
+        } catch (error) {
+          console.error("Error loading sidebar:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
+    <script src="js/allmodul.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

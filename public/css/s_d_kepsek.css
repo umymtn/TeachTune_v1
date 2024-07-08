@@ -1,0 +1,138 @@
+/* main */
+body {
+  background-color: #e6e9ee;
+}
+
+.stat-container {
+  justify-content: center;
+  padding-bottom: 15px;
+  background-color: #fff;
+}
+
+.pie {
+  column-gap: 15px;
+}
+
+.chart {
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  width: 49%;
+  border-radius: 10px;
+}
+
+.card-body {
+  text-align: center;
+  justify-content: center;
+  background-color: #fff;
+  border: none;
+}
+
+#studentAttendanceChart,
+#teacherAttendanceChart {
+  width: 100%;
+  padding: 5px;
+}
+
+.total,
+.percentage {
+  text-align: center;
+  padding: 5px;
+}
+
+.chart h3 {
+  color: #000;
+  font-size: 20px;
+  margin-top: 15px;
+  padding-top: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.chart h2 {
+  color: #123a5d;
+  font-family: "Hevatica", sans-serif;
+  font-size: 30px;
+  margin-top: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
+p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+/* bagian utama */
+.stat {
+  background: #f8f9fa;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat h3 {
+  font-size: 18.75px;
+  font-weight: bold;
+  color: #123a5d;
+  margin-bottom: 15px;
+}
+
+.stat p {
+  font-size: 11.25px;
+  font-weight: normal;
+  color: #123a5d;
+  margin-bottom: 5px;
+}
+
+.stat h2 {
+  font-size: 18.75px;
+  font-weight: bolder;
+  color: #123a5d;
+  margin-top: -10px;
+}
+
+.gender {
+  display: flex;
+  justify-content: space-around;
+}
+
+.gender p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+/* rpp */
+.text-validasi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #006b00;
+}
+
+.text-unvalidasi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5aa29;
+}
+
+.text-validasi h3,
+.text-unvalidasi h3 {
+  margin-top: 15px;
+  color: #fff;
+}
+
+.text-validasi p,
+.text-unvalidasi p {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* stat */
+.stat-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

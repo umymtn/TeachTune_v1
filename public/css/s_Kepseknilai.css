@@ -1,0 +1,71 @@
+
+/* header */
+body{
+    background-color: #E6E9EE;
+}
+.row .brand-name h1 {
+    font-size: 20px;
+    color: #123A5D;
+    text-transform: uppercase;
+    padding-top: 8px;
+}
+
+.container-fluid .row .guru .profile .nama h1{
+    color: #0D2A43;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    padding-top: 8px;
+}
+
+.container-fluid .row .guru .profile .logo{
+    padding-top: 8px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container-fluid .row .search input,
+.container-fluid .row .search button{
+    border-radius: 10px;
+}
+
+.row .judul{
+    background-color: #E6E9EE;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 30px;
+    
+}
+
+.main .container-fluid .judul h1{
+    color: #123A5D;
+}
+
+/* main */
+.card-body h1{
+    font-size: 20px;
+    color: #123A5D;
+}
+
+main {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
+}
+
+.chart-container {
+    width: 70%;
+    margin: 20px 0;
+}
+
+canvas {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+
+
+

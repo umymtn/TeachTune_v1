@@ -1,0 +1,66 @@
+main .row {
+  display: flex;
+  flex-wrap: wrap; /* Assuming the sidebar is 260px wide */
+  transition: padding-left 0.3s ease; /* Smooth transition when sidebar toggles */
+}
+
+th,
+td {
+  font-size: 13px;
+}
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.schedule-container {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding-bottom: 25px;
+}
+
+.schedule-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0px;
+  width: 95%;
+  border: 1px solid #f0f0f0;
+  height: fit-content;
+}
+
+.day-column {
+  display: grid;
+  grid-auto-rows: 78px;
+  gap: 0px; /* Set to 0 for grid lines to be continuous */
+  border: 1px solid #f0f0f0;
+}
+
+.day-column h3 {
+  font-size: 16px;
+  color: #123a5d;
+  text-align: center;
+  line-height: 8vh;
+  font-weight: 800;
+  grid-row: span 1;
+  text-decoration: underline;
+}
+
+.schedule-item {
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 0 10px;
+  height: fit-content;
+  text-align: center;
+}
+
+.schedule-item .time {
+  font-size: 12px;
+  font-weight: 800;
+}

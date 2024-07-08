@@ -1,0 +1,71 @@
+/* header */
+body {
+  font-size: 14px;
+}
+
+/* .row .judul {
+  margin-top: 15px;
+} */
+
+.row .judul h1 {
+  color: white;
+}
+
+/* .container-fluid .row .guru .profile {
+  color: #0d2a43;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  padding-top: 8px;
+} */
+
+.container-fluid .row .guru .profile .logo {
+  padding-top: 8px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.container-fluid .row .search input,
+.container-fluid .row .search button {
+  border-radius: 10px;
+}
+
+/* main */
+/* .status-pending {
+  background-color: #6c757d !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.status-disetujui {
+  background-color: #28a745 !important;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.status-ditolak {
+  background-color: #dc3545 !important;
+  border-radius: 5px;
+  text-align: center;
+} */
+
+.card-body h1 {
+  font-size: 15px;
+  color: #123a5d;
+}
+
+#tambah {
+  font-size: 12px;
+}
+
+.breadcrumb {
+  margin-top: 10px;
+}
+
+th {
+  font-size: 13px;
+  text-align: center;
+}
+
+td {
+  font-size: 13px;
+}

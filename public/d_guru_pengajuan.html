@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/s_valid.css" />
+    <link rel="stylesheet" href="css/s_gurupengajuan.css" />
+    <title>Pengajuan Modul Ajar</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside id="sidebar"></aside>
+
+      <div class="main p-3">
+        <div class="container-fluid">
+          <header class="row">
+            <div class="brand-name col-sm-4">
+              <h1>SIM SMPN 73 YOGYAKARTA</h1>
+            </div>
+            <div class="col-sm-6 text-white">
+              <div class="search row input-group">
+                <div class="col-sm-6"></div>
+                <form class="d-flex col-sm-6">
+                  <input class="form-control" type="text" placeholder="Search Class, Documents, ..." aria-label="Search" aria-describedby="cari" />
+                  <button class="input-group-text" id="cari" type="submit"><i class="lni lni-search"></i></button>
+                </form>
+              </div>
+            </div>
+            <div class="guru col-sm-2">
+              <div class="profile row">
+                <div class="nama col-sm-9"><h1 id="guru-name">Guru</h1></div>
+                <div class="logo col-sm-3">
+                  <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <br />
+
+          <div class="row">
+            <div class="judul">
+              <h1>Pengajuan Modul Ajar</h1>
+            </div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Modul Ajar</li>
+                <li class="breadcrumb-item active" aria-current="page">Pengajuan Modul Ajar</li>
+              </ol>
+            </nav>
+
+            <main class="container p-3">
+              <!-- Main Progress -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-10"><h1 class="section-title">DAFTAR MODUL AJAR</h1></div>
+                    <div class="col-md-2"><button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#tambahModal" id="tambah">Ajukan Modul Ajar</button></div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>STATUS</th>
+                          <th>MAPEL</th>
+                          <th>KELAS</th>
+                          <th>BAB</th>
+                          <th>JUDUL</th>
+                          <th>TGL</th>
+                          <th>JP</th>
+                          <th>METODE</th>
+                          <th>AKSI</th>
+                        </tr>
+                      </thead>
+                      <tbody id="modulAjarTableBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </main>
+
+            <!-- Modal -->
+            <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="tambahModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="height: 100%">
+                  <div class="modal-header">
+                    <h1>Halaman Pengajuan Modul Ajar</h1>
+                    <button type="button" class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close" style="text-align: left">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <main class="container justify-content-center">
+                      <div class="row">
+                        <form id="ajukan-form" action="/api/ajukan" method="post" enctype="multipart/form-data">
+                          <input type="hidden" id="id_modul_ajar" name="id_modul_ajar" />
+                          <div class="row mb-3">
+                            <label for="mapel">Mata Pelajaran</label>
+                            <select id="mapel" class="form-control" name="mapel" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="kelas">Kelas</label>
+                            <select id="kelas" class="form-control" name="kelas" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="bab_judul">Bab-Judul</label>
+                            <select id="babJudul" class="form-control" name="babJudul" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="JP">Total Jam Pelajaran</label>
+                            <input type="number" class="form-control" id="JP" name="JP" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="metode">Metode Pembelajaran</label>
+                            <input type="text" class="form-control" id="metode" name="metode" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="file">Upload File Anda</label>
+                            <input type="file" class="form-control" id="file" name="file" required />
+                            <small id="existing-file-info" class="form-text text-muted"></small>
+                          </div>
+                          <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-light button text-center" style="width: 100%; margin-left: 0" name="submit" id="submit">Ajukan</button>
+                          </div>
+                        </form>
+                      </div>
+                    </main>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" id="existing_file" name="existing_file" />
+
+            <!-- Modal for Editing Modul Ajar -->
+            <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="height: 100%">
+                  <div class="modal-header">
+                    <h1>Halaman Perbarui Modul Ajar</h1>
+                    <button type="button" class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close" style="text-align: left">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <main class="container justify-content-center">
+                      <div class="row">
+                        <form id="edit-form" action="/api/update-modul-ajar" method="post" enctype="multipart/form-data">
+                          <input type="hidden" id="edit_id_modul_ajar" name="id_modul_ajar" />
+                          <div class="row mb-3">
+                            <label for="edit_mapel">Mata Pelajaran</label>
+                            <select id="edit_mapel" class="form-control" name="mapel" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_kelas">Kelas</label>
+                            <select id="edit_kelas" class="form-control" name="kelas" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_babJudul">Bab-Judul</label>
+                            <select id="edit_babJudul" class="form-control" name="babJudul" required></select>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_tanggal">Tanggal</label>
+                            <input type="date" class="form-control" id="edit_tanggal" name="tanggal" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_JP">Total Jam Pelajaran</label>
+                            <input type="number" class="form-control" id="edit_JP" name="JP" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_metode">Metode Pembelajaran</label>
+                            <input type="text" class="form-control" id="edit_metode" name="metode" required />
+                          </div>
+                          <div class="row mb-3">
+                            <label for="edit_file">Upload File Baru (jika perlu)</label>
+                            <input type="file" class="form-control" id="edit_file" name="file" />
+                            <small id="existing-file-info" class="form-text text-muted"></small>
+                          </div>
+                          <div class="row justify-content-center">
+                            <button type="submit" class="btn btn-light button text-center" style="width: 100%; margin-left: 0" name="submit" id="submit">Perbarui</button>
+                          </div>
+                        </form>
+                      </div>
+                    </main>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      async function loadSidebar() {
+        try {
+          const response = await fetch("sidebar_guru.html");
+          const sidebarHtml = await response.text();
+          document.getElementById("sidebar").innerHTML = sidebarHtml;
+        } catch (error) {
+          console.error("Error loading sidebar:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
+    <script src="js/valid.js"></script>
+    <script src="js/modulajar.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

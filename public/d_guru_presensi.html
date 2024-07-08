@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/sidebar.css" />
+    <link rel="stylesheet" href="css/s_valid.css" />
+    <link rel="stylesheet" href="css/s_gurupengajuan.css" />
+    <link rel="stylesheet" href="css/presensi.css" />
+    <title>Pengajuan Presensi</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside id="sidebar"></aside>
+
+      <div class="main p-3">
+        <div class="container-fluid">
+          <header class="row">
+            <div class="brand-name col-sm-4">
+              <h1>SIM SMPN 73 YOGYAKARTA</h1>
+            </div>
+            <div class="col-sm-6 text-white">
+              <div class="search row input-group">
+                <div class="col-sm-6"></div>
+                <form class="d-flex col-sm-6">
+                  <input class="form-control" type="text" placeholder="Search Class, Documents, ..." aria-label="Search" aria-describedby="cari" />
+                  <button class="input-group-text" id="cari" type="submit"><i class="lni lni-search"></i></button>
+                </form>
+              </div>
+            </div>
+            <div class="guru col-sm-2">
+              <div class="profile row">
+                <div class="nama col-sm-9"><h1 id="guru-name">Guru</h1></div>
+                <div class="logo col-sm-3">
+                  <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <br />
+
+          <div class="row">
+            <div class="judul">
+              <h1>Pengajuan Presensi</h1>
+            </div>
+
+            <main class="container p-3">
+              <!-- Main Progress -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="row mb-3">
+                    <div class="col-md-11"><h1 class="section-title">PRESENSI</h1></div>
+                    <div class="col-md-1">
+                      <select name="classDropdown" id="classDropdown"></select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <form id="progres-form" action="/api/progres" method="post" enctype="multipart/form-data">
+                      <h6 style="font-size: 14px; font-weight: 600">PELAPORAN PROGRES</h6>
+                      <input type="hidden" name="id_modul_ajar" />
+                      <div class="row mb-3">
+                        <div class="col-md-6">
+                          <label for="bab_judul">Bab-Judul</label>
+                          <select id="babJudul" class="form-control" name="babJudul" required></select>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="tanggal">Tanggal</label> <br />
+                          <input type="date" name="tanggal" id="tanggal" style="width: 100%; padding: 0 10px; border: solid 1px; border-color: rgb(211, 211, 211); border-radius: 5px; height: 40px" />
+                        </div>
+                      </div>
+                      <div class="row mb-5">
+                        <div class="col-md-6">
+                          <label for="topik">Topik</label> <br />
+                          <input type="text" name="topik" id="topik" style="width: 100%; padding: 0 10px; border: solid 1px; border-color: rgb(211, 211, 211); border-radius: 5px; height: 40px" />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="JP">Total Jam Pelajaran</label> <br />
+                          <input type="number" name="JP" id="JP" style="width: 100%; padding: 0 10px; border: solid 1px; border-color: rgb(211, 211, 211); border-radius: 5px; height: 40px" />
+                        </div>
+                      </div>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>NO</th>
+                              <th>NIS</th>
+                              <th>NAMA</th>
+                              <th>HADIR</th>
+                              <th>SAKIT</th>
+                              <th>IZIN</th>
+                              <th>ALPHA</th>
+                              <th>AKTIF</th>
+                            </tr>
+                          </thead>
+                          <tbody id="modulAjarTableBody"></tbody>
+                        </table>
+                        <div class="justify-content-center text-center">
+                          <input type="submit" value="Submit" style="width: 20%; height: 30px; border: none; background-color: #123a5d; color: white; border-radius: 20px" />
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      async function loadSidebar() {
+        try {
+          const response = await fetch("sidebar_guru.html");
+          const sidebarHtml = await response.text();
+          document.getElementById("sidebar").innerHTML = sidebarHtml;
+        } catch (error) {
+          console.error("Error loading sidebar:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadSidebar);
+    </script>
+    <script src="js/presensi.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
